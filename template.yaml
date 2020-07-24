@@ -8,3 +8,9 @@ Resources:
       Handler: index.lambda_handler
       Runtime: nodejs10.x
       CodeUri: ./
+      Events:
+        MyTimeApi:
+          Type: Api
+          Properties:
+            Path: /TimeResource
+            Method: GET

@@ -11,4 +11,3 @@ Resources:
       Description: "Lambda function for testing"
       MemorySize: 128
       Timeout: 30
-      Role: arn:aws:iam::046940809212:role/MyLambdaRole

@@ -1,10 +1,13 @@
-version: 0.1
+version: 0.2
 phases: 
-  install: 
+  install:
+    runtime-versions:
+      python: 3.6 
+  build:
     commands:
-      - aws cloudformation package --template-file samTemplate.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputSamTemplate.yaml
+      - aws cloudformation package --template-file template.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate.yaml
 artifacts:
   type: zip
   files:
-    - samTemplate.yml
-    - outputSamTemplate.yaml
+    - template.yml
+    - outputtemplate.yaml

@@ -5,7 +5,7 @@ Resources:
   HelloWorld:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: TestFunction.lambda_handler
+      Handler: testfunction.lambda_handler
       Runtime: python3.7
       CodeUri: ./
       # Events:

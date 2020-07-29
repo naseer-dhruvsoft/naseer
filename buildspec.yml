@@ -14,5 +14,5 @@ artifacts:
   files:
     - template.yml
     - outputtemplate.yaml
-    - testTemplate.yml
+    - testtemplate.yml
     - testoutputtemplate.yaml

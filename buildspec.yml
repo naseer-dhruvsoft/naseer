@@ -3,16 +3,12 @@ phases:
   install:
     runtime-versions:
       # nodejs: 10 
-      python: 3.7
+      python: 3.8
   build:
     commands:
-      # - npm install time
       - aws cloudformation package --template-file template.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate.yaml
-      # - aws cloudformation package --template-file testTemplate.yaml --s3-bucket testcfbucketnaseer --output-template-file testoutputtemplate.yaml
 artifacts:
   type: zip
   files:
-    - template.yaml
+    - template.yml
     - outputtemplate.yaml
-    # - testTemplate.yaml
-    # - testoutputtemplate.yaml 

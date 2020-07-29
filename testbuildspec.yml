@@ -7,9 +7,9 @@ phases:
   build:
     commands:
       # - npm install time
-      - aws cloudformation package --template-file testtemplate.yaml --s3-bucket testcfbucketnaseer --output-template-file testoutputtemplate.yaml
+      - aws cloudformation package --template-file testTemplate.yaml --s3-bucket testcfbucketnaseer --output-template-file testoutputtemplate.yaml
 artifacts:
   type: zip
   files:
-    - testtemplate.yml
+    - testTemplate.yml
     - testoutputtemplate.yaml

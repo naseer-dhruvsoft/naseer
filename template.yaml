@@ -1,16 +1,27 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Displaying the time 
+Description: Sample functions
+Parameters:
+  BucketName:
+      Type: String
+
 Resources:
-  HelloWorld:
+  SimpleDeployFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda_function.lambda_handler
+      FunctionName: SimpleDeployFunction
+      Timeout: 300
+      Handler: lambda_function.handler
       Runtime: python3.7
       CodeUri: ./
-      # Events:
-      #   MyTimeApi:
-      #     Type: Api
-      #     Properties:
-      #       Path: /TimeResource
-      #       Method: GET
+      Policies: AWSLambdaFullAccess
+
+  TestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Testing Function
+      Timeout: 300
+      Handler: testfunction.handler
+      Runtime: python3.7
+      CodeUri: ./
+      Policies: AWSLambdaFullAccess

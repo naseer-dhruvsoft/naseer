@@ -9,13 +9,6 @@ Resources:
     Properties:
       Handler: lambda_function1.lambda_handler
       Runtime: python3.8
-      Policies:
-        - Version: "2012-10-17"
-          Statement: 
-          - Effect: "Allow"
-            Action: 
-              - "s3:ListAllMyBuckets"
-            Resource: '*'
       Events:
         Api:
           Type: Api
@@ -29,13 +22,6 @@ Resources:
     Properties:
       Handler: lambda_function2.lambda_handler
       Runtime: python3.8
-      Policies:
-        - Version: "2012-10-17"
-          Statement: 
-          - Effect: "Allow"
-            Action: 
-              - "s3:ListAllMyBuckets"
-            Resource: '*'
       Events:
         Api:
           Type: Api

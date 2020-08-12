@@ -1,16 +1,45 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion : '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Displaying the time 
+Description: An example SAM template for Lambda Safe Deployments.
+
 Resources:
-  TimeFunction:
+
+  FirstFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda_function.lambda_handler
+      Handler: lambda_function1.lambda_handler
       Runtime: python3.8
-      CodeUri: ./
-      # Events:
-      #   MyTimeApi:
-      #     Type: Api
-      #     Properties:
-      #       Path: /TimeResource
-      #       Method: GET
+      Policies:
+        - Version: "2012-10-17"
+          Statement: 
+          - Effect: "Allow"
+            Action: 
+              - "s3:ListAllMyBuckets"
+            Resource: '*'
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /test1
+            Method: get
+      FunctionName: 'FirstFunction'
+
+  SecondFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function2.lambda_handler
+      Runtime: python3.8
+      Policies:
+        - Version: "2012-10-17"
+          Statement: 
+          - Effect: "Allow"
+            Action: 
+              - "s3:ListAllMyBuckets"
+            Resource: '*'
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /test2
+            Method: get
+      FunctionName: 'SecondFunction'

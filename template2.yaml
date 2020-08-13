@@ -4,15 +4,15 @@ Description: An example SAM template for Lambda Safe Deployments.
 
 Resources:
 
-  FirstFunction:
+  SecondFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda_function.lambda_handler
+      Handler: lambda_function2.lambda_handler
       Runtime: python3.8
       Events:
         Api:
           Type: Api
           Properties:
-            Path: /test1
+            Path: /test2
             Method: get
-      FunctionName: 'FirstFunction'
+      FunctionName: 'SecondFunction'

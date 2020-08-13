@@ -7,9 +7,12 @@ phases:
   build:
     commands:
       - aws cloudformation package --template-file template.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate.yaml
+      - aws cloudformation package --template-file template2.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate2.yaml
 
 artifacts:
   type: zip
   files:
     - template.yaml
     - outputtemplate.yaml
+    - template2.yaml
+    - outputtemplate2.yaml

@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An example SAM template for Lambda Safe Deployments.
+Parameters:
+  BucketName:
+      Type: String
+
+Resources:
+  FirstFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FirstFunction
+      Timeout: 300
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./
+      Policies: AWSLambdaFullAccess
+
+  SecondFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: SecondFunction
+      Timeout: 300
+      Handler: lambda_function2.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./
+      Policies: AWSLambdaFullAccess

@@ -6,13 +6,10 @@ phases:
       python: 3.8
   build:
     commands:
-      - aws cloudformation package --template-file template.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate.yaml
-      - aws cloudformation package --template-file template2.yaml --s3-bucket codepipelinetestingnaseer --output-template-file outputtemplate2.yaml
-
+      - aws cloudformation package --template-file template.yml --s3-bucket codepipelinetestingnaseer --output-template-file packaged-template.yml
+      - aws cloudformation deploy --template-file packaged-template.yml --stack-name GitHubToLambdaTestStack --capabilities CAPABILITY_IAM --parameter-overrides BucketName=codepipelinetestingnaseer
 artifacts:
   type: zip
   files:
     - template.yaml
     - outputtemplate.yaml
-    - template2.yaml
-    - outputtemplate2.yaml

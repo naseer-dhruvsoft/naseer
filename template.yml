@@ -9,15 +9,14 @@ Resources:
       Timeout: 300
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: ./
+      CodeUri: one/
       Policies: AWSLambdaFullAccess
-
   SecondFunction:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: SecondFunction
       Timeout: 300
-      Handler: lambda_function2.lambda_handler
+      Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: ./
+      CodeUri: two/
       Policies: AWSLambdaFullAccess

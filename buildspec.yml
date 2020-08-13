@@ -7,7 +7,6 @@ phases:
   build:
     commands:
       - aws cloudformation package --template-file template.yml --s3-bucket codepipelinetestingnaseer --output-template-file packaged-template.yml
-      - aws cloudformation deploy --template-file packaged-template.yml --stack-name GitHubToLambdaTestStack --capabilities CAPABILITY_IAM --parameter-overrides BucketName=codepipelinetestingnaseer
 artifacts:
   type: zip
   files:
